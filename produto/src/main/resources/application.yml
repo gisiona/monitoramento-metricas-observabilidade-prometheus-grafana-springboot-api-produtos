@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: "api_produto"
+
+resilience4j.circuitbreaker:
+  instances:
+    avaliacaoCB:
+      minimumNumberOfCalls: 4
+      slidingWindowSize: 8
+
+management:
+  endpoints:
+    enabled-by-default: true
+    jmx:
+      exposure:
+        include: "*"
+
+    web:
+      exposure:
+        include: "*"
+
+  metrics:
+    tags:
+      application: "api_produto"
