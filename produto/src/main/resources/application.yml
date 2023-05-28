@@ -14,11 +14,20 @@ management:
     jmx:
       exposure:
         include: "*"
-
     web:
       exposure:
         include: "*"
-
   metrics:
     tags:
       application: "api_produto"
+
+# Configuration Tracing Jeager
+opentracing:
+  jaeger:
+    service-name: "api_produto"
+    sampler:
+      type: "const"
+      param: 1
+    udp-sender:
+      host: "localhost"
+      port: "6831"
